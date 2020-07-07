@@ -27,3 +27,32 @@ router.route('/add').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 })
 
+router.route('/:id').get((req, res) => {
+    Application.findById(req.params.id)
+        .then(applications => res.json(applications))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+  
+router.route('/:id').delete((req, res) => {
+    Application.findByIdAndDelete(req.params.id)
+        .then(() => res.json('Application deleted.'))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/update/:id').post((req, res) => {
+    Application.findById(req.params.id)
+        .then(applications => {
+            applications.company = req.body.company;
+            applications.title = req.body.title;
+            applications.link = req.body.link;
+            applications.date = Date.parse(req.body.date);
+            applications.notes = req.body.notes;
+    
+            applications.save()
+                .then(() => res.json('Application updated!'))
+                .catch(err => res.status(400).json('Error: ' + err));
+        })
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+module.exports = router;
