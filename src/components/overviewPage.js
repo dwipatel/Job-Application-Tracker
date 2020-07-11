@@ -12,7 +12,7 @@ const Applications = props => (
         <td>{props.app.date.substring(0,10)}</td>
         <td>{props.app.notes}</td>
         <td>
-            <a href={"/edit/"+props.app._id}>edit</a> | <a href="#" onClick={() => { props.deleteExercise(props.app._id) }}>delete</a>
+            <a href={"/edit/"+props.app._id}>edit</a> | <a href="#" onClick={() => { props.deleteApplication(props.app._id) }}>delete</a>
         </td>
     </tr>
 )

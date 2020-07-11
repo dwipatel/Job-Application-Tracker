@@ -15,51 +15,89 @@ export default class AddApplication extends Component {
             date: new Date(),
             notes: '',
         }
+        this.onChangeCompany = this.onChangeCompany.bind(this);
+        this.onChangeTitle = this.onChangeTitle.bind(this);
+        this.onChangeLink = this.onChangeLink.bind(this);
+        this.onChangeDate = this.onChangeDate.bind(this);
+        this.onChangeNotes = this.onChangeNotes.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
+
+    onChangeCompany(e) {
+        this.setState({ company: e.target.value })
+    }
+    onChangeTitle(e) {
+        this.setState({ title: e.target.value })
+    }
+    onChangeLink(e) {
+        this.setState({ link: e.target.value })
+    }
+    onChangeDate(date) {
+        this.setState({ date: date })
+    }
+    onChangeNotes(e) {
+        this.setState({ notes: e.target.value })
+    }
+    onSubmit(e) {
+        e.preventDefault();
+
+        const application = {
+            company: this.state.company,
+            title: this.state.title,
+            link: this.state.link,
+            date: this.state.date,
+            notes: this.state.notes,
+        }
+      
+        console.log(application);
+
+        axios.post('http://localhost:5000/applications/add', application)
+            .then(res => console.log(res.data));
+
+        window.location = '/';
+    }
+
 
     render() {
         return(
-            <Form className="mt-5">
-                <Form.Group as={Row}>
-                    <Form.Label column sm="2">Company</Form.Label>
-                    <Col sm="10">
-                        <Form.Control plaintext readOnly defaultValue="email@example.com" />
-                    </Col>
-                </Form.Group>
-
-                <Form.Group as={Row}>
-                    <Form.Label column sm="2">Title</Form.Label>
-                    <Col sm="10">
-                        <Form.Control type="text" placeholder="title" />
-                    </Col>
-                </Form.Group>
-                
-                <Form.Group as={Row}>
-                    <Form.Label column sm="2">Link</Form.Label>
-                    <Col sm="10">
-                        <Form.Control type="text" placeholder="link" />
-                    </Col>
-                </Form.Group>
-                
-                <Form.Group as={Row}>
-                    <Form.Label column sm="2">Notes</Form.Label>
-                    <Col sm="10">
-                        <Form.Control type="text" placeholder="notes" />
-                    </Col>
-                </Form.Group>
-
-                <Form.Group as={Row}>
-                    <Form.Label column sm="2">Date</Form.Label>
-                    <Col sm="10">
-                        <DatePicker selected={this.state.date} onChange={this.onChangeDate}/>
-                    </Col>
-                </Form.Group>
-
-                <div className="form-group mt-5">
-                    <input type="submit" value="Create Application Log" className="btn btn-primary" />
-                </div>
-
+            <div>
+                <h3 className="mt-5">Create Application</h3>
+                <Form onSubmit={this.onSubmit}>
+                    <Form.Group as={Row}>
+                        <Form.Label column sm="2">Company</Form.Label>
+                        <Col sm="10">
+                            <Form.Control type="text" placeholder="company" onChange={this.onChangeCompany}/>
+                        </Col>
+                    </Form.Group>
+                    <Form.Group as={Row}>
+                        <Form.Label column sm="2">Title</Form.Label>
+                        <Col sm="10">
+                            <Form.Control type="text" placeholder="title" onChange={this.onChangeTitle}/>
+                        </Col>
+                    </Form.Group>
+                    <Form.Group as={Row}>
+                        <Form.Label column sm="2">Link</Form.Label>
+                        <Col sm="10">
+                            <Form.Control type="text" placeholder="link" onChange={this.onChangeLink}/>
+                        </Col>
+                    </Form.Group>
+                    <Form.Group as={Row}>
+                        <Form.Label column sm="2">Notes</Form.Label>
+                        <Col sm="10">
+                            <Form.Control type="text" placeholder="notes" onChange={this.onChangeNotes}/>
+                        </Col>
+                    </Form.Group>
+                    <Form.Group as={Row}>
+                        <Form.Label column sm="2">Date</Form.Label>
+                        <Col sm="10">
+                            <DatePicker selected={this.state.date} onChange={this.onChangeDate}/>
+                        </Col>
+                    </Form.Group>
+                    <div className="form-group mt-5">
+                        <input type="submit" value="Create Application Log" className="btn btn-primary" />
+                    </div>
                 </Form>
+            </div>
         )
     }
 }
