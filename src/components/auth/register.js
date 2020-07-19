@@ -34,43 +34,39 @@ export default class Registration extends Component {
     e.preventDefault();
     
     if (this.state.password === this.state.password_confirmation) {
-        this.setState({
-            isValid: true,
-        })
+      this.setState({
+          isValid: true,
+      })
 
-        const user = {
-            username: this.state.username,
-            password: this.state.password,
-            password_confirmation: this.state.password_confirmation
-        }
-        
-        console.log(user);
+      const user = {
+          username: this.state.username,
+          password: this.state.password,
+          password_confirmation: this.state.password_confirmation
+      }
+      
+      console.log(user);
 
-        axios.post('http://localhost:5000/users/add', user)
-        .then(response => {
-            if (response.data.status === "created") {
-            this.props.handleSuccessfulAuth(response.data);
-            }
-            console.log(response.data)
-        })
-        .catch(error => {
-            console.log("registration error", error);
-            this.setState({
-              isValid: false,
-            })
-        });
-
-        //window.location = '/';
+      axios.post('http://localhost:5000/users/add', user)
+      .then(response => {
+          if (response.data.status === "created") {
+          this.props.handleSuccessfulAuth(response.data);
+          }
+          console.log(response.data)
+          window.location = '/login';
+      })
+      .catch(error => {
+          console.log("registration error", error);
+          this.setState({
+            isValid: false,
+          })
+      });
+  
     }
-    else {
-        console.log("Cannot add")
-    }
-    
   }
 
   render() {
     return (
-      <div>
+      <div className="mt-5">
         <Form onSubmit={this.handleSubmit}>
           <Form.Group controlId="formGroupEmail">
             <Form.Label>Username</Form.Label>
