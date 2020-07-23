@@ -32,7 +32,7 @@ export default class Login extends Component {
         username: this.state.username,
         password: this.state.password,
     }
-    axios.post("http://localhost:5000/users", user)
+    axios.post("http://localhost:5000/login", user)
       .then(response => {
         if (response.data.logged_in) {
           this.props.handleSuccessfulAuth(response.data);
