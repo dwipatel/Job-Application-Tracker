@@ -13,6 +13,7 @@ export default function Navigation () {
             user: undefined,
         });
         localStorage.setItem("auth-token", "");
+        window.location = 'login'
     }
     
     return (

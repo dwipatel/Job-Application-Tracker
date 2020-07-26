@@ -28,12 +28,23 @@ export default class OverviewPage extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/applications/')
+        let token = localStorage.getItem("auth-token");
+        if (token === null) {
+            localStorage.setItem("auth-token", "");
+            token = "";
+            window.location = '/login'
+        }
+        else if (token === "") {
+            window.location = '/login'
+        }
+        else {
+            axios.get('http://localhost:5000/applications/')
             .then(response => {
                 this.setState({
                     apps: response.data,
                 })
             })
+        }
     }
 
     deleteApplication(id) {

@@ -23,6 +23,18 @@ export default class AddApplication extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
+    componentDidMount() {
+        let token = localStorage.getItem("auth-token");
+        if (token === null) {
+            localStorage.setItem("auth-token", "");
+            token = "";
+            window.location = '/login'
+        }
+        else if (token === "") {
+            window.location = '/login'
+        }
+    }
+
     onChangeCompany(e) {
         this.setState({ company: e.target.value })
     }
