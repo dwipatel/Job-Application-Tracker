@@ -4,11 +4,11 @@ let User = require('../models/users.model');
 const auth = require("../middleware/auth");
 const { model } = require('mongoose');
 
-// router.route('/').get((req, res) => {
-//     User.find()
-//         .then(users => res.json(users))
-//         .catch(err => res.status(404).json('Error: ' + err));
-// })
+router.route('/all').get((req, res) => {
+    User.find()
+        .then(users => res.json(users))
+        .catch(err => res.status(404).json('Error: ' + err));
+})
 
 router.route('/add').post((req, res) => {
     const username = req.body.username;
