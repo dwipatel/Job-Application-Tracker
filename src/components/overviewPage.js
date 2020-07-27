@@ -38,7 +38,7 @@ export default class OverviewPage extends Component {
             window.location = '/login'
         }
         else {
-            axios.get('http://localhost:5000/applications/')
+            axios.get('http://localhost:5000/applications/ofUser', { headers: {"x-auth-token": token} })
             .then(response => {
                 this.setState({
                     apps: response.data,

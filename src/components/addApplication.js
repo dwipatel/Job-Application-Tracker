@@ -52,6 +52,7 @@ export default class AddApplication extends Component {
     }
     onSubmit(e) {
         e.preventDefault();
+        let token = localStorage.getItem("auth-token");
 
         const application = {
             company: this.state.company,
@@ -63,7 +64,7 @@ export default class AddApplication extends Component {
       
         console.log(application);
 
-        axios.post('http://localhost:5000/applications/add', application)
+        axios.post('http://localhost:5000/applications/add', application, { headers: {"x-auth-token": token} })
             .then(res => console.log(res.data));
 
         window.location = '/';
