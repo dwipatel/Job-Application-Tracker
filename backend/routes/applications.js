@@ -1,6 +1,7 @@
 const router = require('express').Router();
 let Application = require('../models/applications.model');
 const { model } = require('mongoose');
+const auth = require('../middleware/auth');
 
 router.route('/').get((req, res) => {
     Application.find()
@@ -8,18 +9,26 @@ router.route('/').get((req, res) => {
         .catch(err => res.status(404).json('Error: ' + err));
 })
 
-router.route('/add').post((req, res) => {
+router.route('/ofUser').get(auth, (req, res) => {
+    Application.find({ userID: req.user })
+        .then(applications => res.json(applications))
+        .catch(err => res.status(404).json('Error: ' + err));
+})
+
+router.route('/add').post(auth, (req, res) => {
     const company = req.body.company;
     const title = req.body.title;
     const link = req.body.link;
     const date = Date.parse(req.body.date);
     const notes = req.body.notes;
+    const userID = req.user;
     const newApplication = new Application({
         company,
         title,
         link,
         date,
         notes,
+        userID,
     })
 
     newApplication.save()
