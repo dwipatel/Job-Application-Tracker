@@ -67,7 +67,7 @@ export default class AddApplication extends Component {
         axios.post('http://localhost:5000/applications/add', application, { headers: {"x-auth-token": token} })
             .then(res => console.log(res.data));
 
-        window.location = '/';
+        window.location = 'Job-Application-Tracker/';
     }
 
 

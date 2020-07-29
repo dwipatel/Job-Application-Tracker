@@ -52,7 +52,7 @@ export default class Registration extends Component {
           this.props.handleSuccessfulAuth(response.data);
           }
           console.log(response.data)
-          window.location = '/login';
+          window.location = 'Job-Application-Tracker/login';
       })
       .catch(error => {
           console.log("registration error", error);

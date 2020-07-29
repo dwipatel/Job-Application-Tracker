@@ -70,7 +70,7 @@ export default class EditApplication extends Component {
         axios.post('http://localhost:5000/applications/update/' + this.props.match.params.id, application)
             .then(res => console.log(res.data));
 
-        window.location = '/';
+        window.location = 'Job-Application-Tracker/';
     }
 
 

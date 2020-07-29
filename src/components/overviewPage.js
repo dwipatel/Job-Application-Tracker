@@ -12,7 +12,7 @@ const Applications = props => (
         <td>{props.app.date.substring(0,10)}</td>
         <td>{props.app.notes}</td>
         <td>
-            <a href={"/edit/"+props.app._id}>edit</a> | <a href="#" onClick={() => { props.deleteApplication(props.app._id) }}>delete</a>
+            <a href={"Job-Application-Tracker/edit/"+props.app._id}>edit</a> | <a href="#" onClick={() => { props.deleteApplication(props.app._id) }}>delete</a>
         </td>
     </tr>
 )
@@ -32,10 +32,10 @@ export default class OverviewPage extends Component {
         if (token === null) {
             localStorage.setItem("auth-token", "");
             token = "";
-            window.location = '/login'
+            window.location = 'Job-Application-Tracker/login'
         }
         else if (token === "") {
-            window.location = '/login'
+            window.location = 'Job-Application-Tracker/login'
         }
         else {
             axios.get('http://localhost:5000/applications/ofUser', { headers: {"x-auth-token": token} })

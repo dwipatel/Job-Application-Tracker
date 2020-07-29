@@ -45,7 +45,7 @@ export default function Login() {
         user: loginRes.data.user,
       });
       localStorage.setItem("auth-token", loginRes.data.token);
-      window.location = '/'
+      window.location = 'Job-Application-Tracker/'
     } catch (err) {
       setValid({
         isValid: false,

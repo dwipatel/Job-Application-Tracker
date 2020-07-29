@@ -47,11 +47,11 @@ export default function App() {
       <UserContext.Provider value={{ userData, setUserData }}>
         <div className="container">
           <Navbar/>
-          <Route path="/" exact component={FrontPage}/>
-          <Route path="/add" component={AddPage}/> 
-          <Route path="/edit/:id" component={EditPage}/>
-          <Route path="/register" component={Register}/>
-          <Route path="/login" component={LoginPage}/>
+          <Route path="Job-Application-Tracker/" exact component={FrontPage}/>
+          <Route path="Job-Application-Tracker/add" component={AddPage}/> 
+          <Route path="Job-Application-Tracker/edit/:id" component={EditPage}/>
+          <Route path="Job-Application-Tracker/register" component={Register}/>
+          <Route path="Job-Application-Tracker/login" component={LoginPage}/>
         </div>
       </UserContext.Provider>
     </Router>
