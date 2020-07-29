@@ -60,7 +60,11 @@ export default class Registration extends Component {
             isValid: false,
           })
       });
-  
+    }
+    else {
+      this.setState({
+        isValid: false,
+      })
     }
   }
 

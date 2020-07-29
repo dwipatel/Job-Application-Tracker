@@ -15,6 +15,11 @@ router.route('/add').post((req, res) => {
     const password = req.body.password;
     const password_confirmation = req.body.password_confirmation;
     //create new user
+    if (password !== password_confirmation)
+      return res
+        .status(400)
+        .json({ msg: "Enter the same password twice for verification." });
+
     const newUser = new User(
         {
             username, 
