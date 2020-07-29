@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/Job-Application-Tracker%20/static/css/main.5f361e03.chunk.css",
+    "main.js": "/Job-Application-Tracker%20/static/js/main.0385cd37.chunk.js",
+    "main.js.map": "/Job-Application-Tracker%20/static/js/main.0385cd37.chunk.js.map",
+    "runtime-main.js": "/Job-Application-Tracker%20/static/js/runtime-main.e55a9fd4.js",
+    "runtime-main.js.map": "/Job-Application-Tracker%20/static/js/runtime-main.e55a9fd4.js.map",
+    "static/css/2.d98961f1.chunk.css": "/Job-Application-Tracker%20/static/css/2.d98961f1.chunk.css",
+    "static/js/2.184893bf.chunk.js": "/Job-Application-Tracker%20/static/js/2.184893bf.chunk.js",
+    "static/js/2.184893bf.chunk.js.map": "/Job-Application-Tracker%20/static/js/2.184893bf.chunk.js.map",
+    "index.html": "/Job-Application-Tracker%20/index.html",
+    "precache-manifest.c5a3ccc14876eb4e25628460dee2c4ff.js": "/Job-Application-Tracker%20/precache-manifest.c5a3ccc14876eb4e25628460dee2c4ff.js",
+    "service-worker.js": "/Job-Application-Tracker%20/service-worker.js",
+    "static/css/2.d98961f1.chunk.css.map": "/Job-Application-Tracker%20/static/css/2.d98961f1.chunk.css.map",
+    "static/css/main.5f361e03.chunk.css.map": "/Job-Application-Tracker%20/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.184893bf.chunk.js.LICENSE.txt": "/Job-Application-Tracker%20/static/js/2.184893bf.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e55a9fd4.js",
+    "static/css/2.d98961f1.chunk.css",
+    "static/js/2.184893bf.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.0385cd37.chunk.js"
+  ]
+}
