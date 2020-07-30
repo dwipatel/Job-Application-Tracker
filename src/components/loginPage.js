@@ -8,7 +8,7 @@ export default class LoginPage extends Component {
             <div>
                 <Login/>
                 <div>
-                    <a href="Job-Application-Tracker/register"><input type="submit" value="Register" className="btn btn-primary" /></a>
+                    <a href="/register"><input type="submit" value="Register" className="btn btn-primary" /></a>
                 </div>
             </div>
         )
